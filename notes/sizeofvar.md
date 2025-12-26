@@ -8,7 +8,7 @@
 4. Computers operate in **bytes (8 bits)**; hence sizes always appear in multiples of 8 (not arbitrary values like 3, 4, or 5).
 5. We might allocate more space to something that requires a smaller range by definition.
 
-![Interpreted language allocation](assets/interpretedlangvariablealloc.png)
+![Interpreted language allocation](../assets/interpretedlangvariablealloc.png)
 
 6. Hence, we end up using more memory than necessary in scripting languages (since resource allocation is handled by the interpreter).
 7. Enforcing a fixed type avoids mis-allocations (e.g., rejecting a negative value for an `age` variable).
@@ -21,7 +21,7 @@
 2. This is solved by attaching **runtime type metadata (tags)** to values.  
    This enables runtime type checks and errors (Python throws errors; JavaScript often doesn't).
 
-![JavaScript type coercion](assets/javascripthavocks.png)
+![JavaScript type coercion](../assets/javascripthavocks.png)
 
 3. These tags require extra memory.
 4. Tags must be:
@@ -32,14 +32,14 @@
 
    All of this adds runtime cost. As a result, the CPU spends time performing comparisons instead of arithmetic.
 
-![Tag comparison function](assets/tagcompfunction.png)
+![Tag comparison function](../assets/tagcompfunction.png)
 
-![Tag comparison](assets/tagcomparison.png)
+![Tag comparison](../assets/tagcomparison.png)
 
 5. In compiled languages, this overhead is removed.  
    The compiler directly generates assembly that performs arithmetic without runtime type checks.
 
-![Runtime overhead](assets/runtimeoverhead.png)
+![Runtime overhead](../assets/runtimeoverhead.png)
 
 ---
 
