@@ -5,8 +5,9 @@
 ## C++
 ### C++ performance
 1. Cache locality & Branch Predictability in C++: [Notes](/notes/cpplocality.md)
-2. Rule of Three, Five, Zero: [Notes](/notes/ruleofthreefivezero.md)
-3. Compiler Optimizations: [Notes](/notes/compileroptimizations.md)
+2. Compiler Optimizations Flags: [Notes](/notes/optimizationflags.md)
+3. Different types of compiler optimizations: [Notes](/notes/compileropt.md)
+4. Rule of Three, Five, Zero: [Notes](/notes/ruleofthreefivezero.md)
 
 ## System's Programming
 1. Why size of variables matter: [Notes](/notes/sizeofvar.md)
