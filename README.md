@@ -4,6 +4,10 @@
 1. L1, L2, L3 Caches: [Notes](/notes/caches.md)
 
 ## C++
+### General C++
+1. Const, constexpr and consteval in C++: [Notes](/notes/const_constexpr_consteval.md)
+2. Move semantics in C++: [Notes](/notes/movesemantics.md)
+3. Casting in C++: [Notes](/notes/castingincpp.md)
 ### C++ performance
 1. Cache locality & Branch Predictability in C++: [Notes](/notes/cpplocality.md)
 2. Compiler Optimizations Flags: [Notes](/notes/optimizationflags.md)
