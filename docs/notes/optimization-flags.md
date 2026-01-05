@@ -9,7 +9,9 @@
     - Os: (optimize for size, reduces binary size, basically enables all -O2 optimizations that do not increase size)
     - Oz: (optimize for minimum size, even more aggressive than -Os)
     - Og: (optimize for debugging, improves debugging experience)
-    ![alt text](../assets/optflags.png)
+    <p align="center">
+  <img src="../assets/optflags.png" width="500" alt="alt text">
+</p>
     - Theoritically, Oz or Os can be fatser if they allow more code to fit in cache, but in practice O2 or O3 are often faster due to better overall optimizations (again it's dependent)
 3. I ran some benchmarks to compare the size and performance of binaries compiled with different optimization flags. I then ran a bash script to see the size -m results of all the files piped with grep and i/o'ed to a csv file which was then used to generate plots using matplotlib. This is what i got (Code which was compiled was a simple loop to add elements from an array):
     <p align="center">

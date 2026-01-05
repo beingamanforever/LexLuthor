@@ -1,0 +1,58 @@
+site_name: Aman Systems
+site_description: Systems programming, C++, performance, and infrastructure notes
+site_url: https://beingamanforever.github.io/aman.systems/
+
+theme:
+  name: material
+  palette:
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: black
+      accent: grey
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - scheme: default
+      primary: black
+      accent: grey
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  font:
+    text: Roboto Mono
+    code: Roboto Mono
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+nav:
+  - Home: index.md
+  - C++:
+      - Language Features:
+          - Const, Constexpr & Consteval: notes/const-constexpr-consteval.md
+          - Mental Model for Constexpr: notes/mental-model-for-constexpr.md
+          - Importance of Being Const: notes/importance-of-being-const.md
+          - Move Semantics: notes/move-semantics.md
+          - Casting: notes/casting-in-cpp.md
+      - Performance & Optimization:
+          - Cache Locality & Branch Prediction: notes/cache-locality.md
+          - Compiler Optimization Flags: notes/optimization-flags.md
+          - Compiler Optimization Techniques: notes/compiler-optimizations.md
+          - Important Optimizations (Jan Bielak): notes/cppcon22-optimizations-jan-bielak.md
+  - Systems Programming:
+      - Why Stack is Fast: notes/why-stack-is-fast.md
+      - Size of Variables Matter: notes/size-of-variables.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - attr_list
+  - md_in_html

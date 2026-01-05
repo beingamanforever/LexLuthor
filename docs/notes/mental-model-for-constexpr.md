@@ -1,5 +1,5 @@
 # Your new mental model for constexpr
-CppCon 2021 - https://youtu.be/MdrfPSUtMVM?si=nAFzN2AWLx3aAzdG
+[CppCon 2021](https://youtu.be/MdrfPSUtMVM?si=nAFzN2AWLx3aAzdG)
 
 ---
 

@@ -8,7 +8,9 @@
 4. Computers operate in **bytes (8 bits)**; hence sizes always appear in multiples of 8 (not arbitrary values like 3, 4, or 5).
 5. We might allocate more space to something that requires a smaller range by definition.
 
-![Interpreted language allocation](../assets/interpretedlangvariablealloc.png)
+<p align="center">
+  <img src="../assets/interpretedlangvariablealloc.png" width="500" alt="Interpreted language allocation">
+</p>
 
 6. Hence, we end up using more memory than necessary in scripting languages (since resource allocation is handled by the interpreter).
 7. Enforcing a fixed type avoids mis-allocations (e.g., rejecting a negative value for an `age` variable).
@@ -21,7 +23,9 @@
 2. This is solved by attaching **runtime type metadata (tags)** to values.  
    This enables runtime type checks and errors (Python throws errors; JavaScript often doesn't).
 
-![JavaScript type coercion](../assets/javascripthavocks.png)
+<p align="center">
+  <img src="../assets/javascripthavocks.png" width="500" alt="JavaScript type coercion">
+</p>
 
 3. These tags require extra memory.
 4. Tags must be:
@@ -32,14 +36,20 @@
 
    All of this adds runtime cost. As a result, the CPU spends time performing comparisons instead of arithmetic.
 
-![Tag comparison function](../assets/tagcompfunction.png)
+<p align="center">
+  <img src="../assets/tagcompfunction.png" width="500" alt="Tag comparison function">
+</p>
 
-![Tag comparison](../assets/tagcomparison.png)
+<p align="center">
+  <img src="../assets/tagcomparison.png" width="500" alt="Tag comparison">
+</p>
 
 5. In compiled languages, this overhead is removed.  
    The compiler directly generates assembly that performs arithmetic without runtime type checks.
 
-![Runtime overhead](../assets/runtimeoverhead.png)
+<p align="center">
+  <img src="../assets/runtimeoverhead.png" width="500" alt="Runtime overhead">
+</p>
 
 ---
 

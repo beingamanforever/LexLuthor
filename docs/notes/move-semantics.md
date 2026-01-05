@@ -1,6 +1,6 @@
 # Move Semantics
 ## Lectures Referred
-1. Back to Basics: Move Semantics: CppCon 2021: https://youtu.be/Bt3zcJZIalk?si=Vodi0-QHJUGM8NPE
+1. [Back to Basics: Move Semantics: CppCon 2021](https://youtu.be/Bt3zcJZIalk?si=Vodi0-QHJUGM8NPE)
 --- Notes Start Here ---
 1. Motivation for move semantics
     - Copying large objects is expensive

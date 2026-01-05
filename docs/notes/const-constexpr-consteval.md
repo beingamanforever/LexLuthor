@@ -1,13 +1,15 @@
 # Flavours of Constness in C++
 ## Lectures Referred
-1. Back to Basics: const and constexpr in C++ - CppCon 2021: https://youtu.be/tA6LbPyYdcosi=tHeeNkQTmad3wEcH (Rest in peace Rainer)
-2. Your new mental model for constexpr - CppCon 2021 https://youtu.be/MdrfPSUtMVM?si=nAFzN2AWLx3aAzdG [Notes](mentalmodeforconstexpr.md)
-3. Importance of being const - Cpp 2015 https://youtu.be/Y1KOuFYtTF4?si=8NJhbsMbnvHEeiVu [Notes](importanceofbeingconst.md)
+1. [Back to Basics: const and constexpr in C++ - CppCon 2021](https://youtu.be/tA6LbPyYdcosi=tHeeNkQTmad3wEcH) (Rest in peace Rainer)
+2. [Your new mental model for constexpr - CppCon 2021](https://youtu.be/MdrfPSUtMVM?si=nAFzN2AWLx3aAzdG) - [Notes](mental-model-for-constexpr.md)
+3. [Importance of being const - Cpp 2015](https://youtu.be/Y1KOuFYtTF4?si=8NJhbsMbnvHEeiVu) - [Notes](importance-of-being-const.md)
 
 --- Notes Start Here --
 ## Const
 1. Flavours of Constness in C++
-    - ![alt text](/assets/image1.png)
+    - <p align="center">
+  <img src="../assets/image1.png" width="500" alt="alt text">
+</p>
     - `const`, `const_cast` -> are part of C++ 98
     - `constexpr` -> C++11
     - `consteval`, `constinit`, `is_constant_evaluated` -> C++20
@@ -16,7 +18,9 @@
     - const is a quality attribute of our program
     - const objects: must be initialized, cannot be modified, cannot be victims of data racs, can only invoke const member functions
     - const member functions: cannot modify any member variables (unless mutable), cannot call non-const member functions.
-    - ![alt text](/assets/image4.png)
+    - <p align="center">
+  <img src="../assets/image4.png" width="500" alt="alt text">
+</p>
     - const only changes the `this` pointer, mutable allows the modification (ignores the const on `this`)
     - internally void f() const{} is treated as void f(const ClassName* this){} 
     - objects are data, member functions are free functions, object is passed as a hidden argument to the member function
@@ -57,17 +61,23 @@ int main() {
 }
 ```
 
-4. ![alt text](image3.png)
+4. <p align="center">
+  <img src="../assets/image3.png" width="500" alt="alt text">
+</p>
     - Use const on parameters when the function doesn’t need  to modify the caller’s object.
     - Don’t use const when the function’s job is to modify the caller’s object (output or in/out).
-    ![alt text](image4.png)
+    <p align="center">
+  <img src="../assets/image4.png" width="500" alt="alt text">
+</p>
     - “const pointer” vs “pointer to const”:
         - Read from right to left. 
         - ` T* const p` -> const pointer to T (pointer cannot be changed)
         - `const T* p` or ` T const* p` -> pointer to const T (value cannot be changed)
 
 ## const_cast
-![alt text](image5.png)
+<p align="center">
+  <img src="../assets/image5.png" width="500" alt="alt text">
+</p>
 ```cpp
 const int x = 5;
 int* p = const_cast<int*>(&x);
@@ -157,7 +167,9 @@ sometimes even reinterpret_cast (bit-level reinterpretation)
 That makes code harder to audit: you can’t tell which dangerous conversion you just did.
 
 ## constexpr
-![alt text](image6.png)
+<p align="center">
+  <img src="../assets/image6.png" width="500" alt="alt text">
+</p>
 - we have two times, compile time and runtime
 - 1...*constexpr*...M...*runtime*....N
 - constexpr is a promise that a function or object can be evaluated at compile time
@@ -174,7 +186,9 @@ constexpr int z = rand(); // ERROR: rand() is not a constant expression
 ```
     
 - const ⇒ maybe usable as a compile-time constant, but only in certain cases (classic: const int/enum with constant initialization). For non-integral types (like double, std::string), const is not enough to make it compile-time usable; you typically need constexpr and a constexpr-capable type/initializer.
-![alt text](image7.png)
+<p align="center">
+  <img src="../assets/image7.png" width="500" alt="alt text">
+</p>
 
 ### `static`, `static_cast`, `thread_local` (and why not in `constexpr`)
 - What `static` means (C++ has multiple meanings):
@@ -278,7 +292,9 @@ int main() {
 }
 ```
 ## consteval (C++20)
-![alt text](image8.png)
+<p align="center">
+  <img src="../assets/image8.png" width="500" alt="alt text">
+</p>
 - `consteval` = “immediate function”: must be evaluated at compile time. can be evaluated at compile time (when needed)
 - `constexpr` = “can be evaluated at compile time or runtime”. Must be evaluated at compile time every time it is called
 - If you try to call it at runtime, you get a compile-time error.
@@ -286,20 +302,34 @@ int main() {
 - Use consteval when runtime evaluation would be meaningless or dangerous.
 
 ## constinit (C++20)
-![alt text](image9.png)
+<p align="center">
+  <img src="../assets/image9.png" width="500" alt="alt text">
+</p>
 - `constinit` = “constant initialization”: variable must be initialized at compile time, but can be modified at runtime.
 - Use `constinit` for non-const global or static variables that must be initialized at compile time (to avoid static initialization order fiasco).
 - `constinit` guarantees that the variable is initialized before any dynamic initialization occurs.
-![alt text](image10.png)
-![alt text](image11.png)
+<p align="center">
+  <img src="../assets/image10.png" width="500" alt="alt text">
+</p>
+<p align="center">
+  <img src="../assets/image11.png" width="500" alt="alt text">
+</p>
 - sometimes it works and sometimes it doesn't
-![alt text](image12.png)
+<p align="center">
+  <img src="../assets/image12.png" width="500" alt="alt text">
+</p>
 
 ## is_constant_evaluated (C++20)
-![alt text](image13.png)
+<p align="center">
+  <img src="../assets/image13.png" width="500" alt="alt text">
+</p>
 - `std::is_constant_evaluated()` function: detects if the current evaluation context is compile-time or runtime.
 - Use it to write functions that behave differently depending on whether they are evaluated at compile time or runtime.
 
 # Function Execution & Variable initialization examples
-![alt text](image14.png)
-![alt text](image15.png)
+<p align="center">
+  <img src="../assets/image14.png" width="500" alt="alt text">
+</p>
+<p align="center">
+  <img src="../assets/image15.png" width="500" alt="alt text">
+</p>
